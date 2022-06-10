@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.javaex.dao.PhoneDao;
 import com.javaex.vo.PersonVo;
 
 
@@ -28,10 +29,11 @@ public class PhoneController {
 		
 		
 		//파라미터꺼내기
+		/*
 		System.out.println(name); 
 		System.out.println(hp); 
 		System.out.println(company); 
-		
+		*/
 		
 		//vo로 묶기 
 		PersonVo personVo = new PersonVo(name, hp, company);
@@ -40,6 +42,14 @@ public class PhoneController {
 		
 		
 		//dao로 저장하기 
+		PhoneDao phoneDao = new PhoneDao();
+		int count = phoneDao.personInsert(personVo);
+		System.out.println(count);
+		//error: 드라이버 로딩 실패 jdbc 관련 
+		
+		
+		
+		
 		return "";
 	}
 	
